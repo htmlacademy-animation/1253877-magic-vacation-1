@@ -87,18 +87,6 @@
 }
 
 // без понятия, нужно ли сейчас уже приязываться к активности секции по скроллу, или нет
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(10%)
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0)
-  }
-}
-
 .intro__message {
   flex: none;
   width: 50.9rem;
@@ -106,9 +94,8 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.27;
-  animation: fadeIn 1s;
+  animation: fadeIn 1s both;
   animation-play-state: paused;
-  animation-fill-mode: both;
 
   @media (min-width: $stop-scaling) {
     width: 509px;
