@@ -241,7 +241,7 @@
     display: block;
     color: inherit;
     padding: 0 0.5em 0.5em;
-    transition: color 300ms;
+    transition: color $transition-timing-normal;
 
     &::after {
       content: "";
@@ -251,7 +251,7 @@
       height: 2px;
       background-color: $c-light;
       left: 0;
-      transition: transform 300ms linear, color 300ms;
+      transition: transform $transition-timing-normal linear, color $transition-timing-normal;
       transform: scaleX(0);
       transform-origin: right;
 
