@@ -3398,7 +3398,7 @@ img {
     height: 120%; } }
 
 .social-block__toggler::before {
-  animation: bubleGam 500ms 200ms both;
+  animation: bubleGam 500ms 200ms backwards;
   animation-play-state: paused; }
 
 .loaded .page-header__menu a.active::after {
