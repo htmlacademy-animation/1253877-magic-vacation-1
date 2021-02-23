@@ -48,7 +48,7 @@ $transition-timing-bezier: cubic-bezier(.08, 1.14 , .97, .89);
 }
 
 .social-block__toggler::before {
-  animation: bubleGam $transition-duration $transition-delay both;
+  animation: bubleGam $transition-duration $transition-delay backwards;
   animation-play-state: paused;
 }
 
