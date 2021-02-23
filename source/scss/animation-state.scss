@@ -1,0 +1,73 @@
+// Вынес сюда сцены анимации, чтобы не мешать с основными стилями.
+// Не очень понял, зачем по заданию это делать через transition,
+// если это не эффекты взаимодействия и через animation в итоге удобнее.
+
+$transition-duration: 500ms;
+$transition-delay: 200ms;
+$transition-timing-bezier: cubic-bezier(.08, 1.14 , .97, .89);
+
+.page-header__logo,
+.page-header__menu,
+.screen__footer,
+.intro__message {
+  animation-duration: $transition-duration;
+  animation-timing-function: $transition-timing-bezier;
+  animation-play-state: paused;
+  animation-fill-mode: backwards;
+}
+
+.page-header__logo {
+  animation-name: fadeFromLeft;
+}
+
+.page-header__menu {
+  animation-name: fade;
+  animation-delay: $transition-delay;
+}
+
+.screen__footer {
+  animation-name: fromBottom;
+}
+
+.intro__message {
+  animation-name: fadeFromBottom;
+  animation-delay: calc(#{$transition-delay} * 5);
+}
+
+@keyframes bubleGam {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  60% {
+    width: 120%;
+    height: 120%;
+  }
+}
+
+.social-block__toggler::before {
+  animation: bubleGam $transition-duration $transition-delay backwards;
+  animation-play-state: paused;
+}
+
+.loaded {
+  .page-header__menu {
+    a.active {
+      &::after {
+        transition-delay: $transition-delay;
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+    }
+  }
+
+  .intro__message,
+  .page-header__logo,
+  .page-header__menu,
+  .social-block__toggler::before,
+  .screen__footer {
+    animation-play-state: running;
+  }
+}
