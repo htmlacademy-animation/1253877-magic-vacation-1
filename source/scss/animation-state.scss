@@ -2,16 +2,12 @@
 // Не очень понял, зачем по заданию это делать через transition,
 // если это не эффекты взаимодействия и через animation в итоге удобнее.
 
-$transition-duration: 500ms;
-$transition-delay: 200ms;
-$transition-timing-bezier: cubic-bezier(.08, 1.14 , .97, .89);
-
 .page-header__logo,
 .page-header__menu,
 .screen__footer,
 .intro__message {
-  animation-duration: $transition-duration;
-  animation-timing-function: $transition-timing-bezier;
+  animation-duration: $animation-duration;
+  animation-timing-function: $animation-timing-bezier;
   animation-play-state: paused;
   animation-fill-mode: backwards;
 }
@@ -22,7 +18,7 @@ $transition-timing-bezier: cubic-bezier(.08, 1.14 , .97, .89);
 
 .page-header__menu {
   animation-name: fade;
-  animation-delay: $transition-delay;
+  animation-delay: $animation-delay;
 }
 
 .screen__footer {
@@ -31,7 +27,7 @@ $transition-timing-bezier: cubic-bezier(.08, 1.14 , .97, .89);
 
 .intro__message {
   animation-name: fadeFromBottom;
-  animation-delay: calc(#{$transition-delay} * 5);
+  animation-delay: calc(#{$animation-delay} * 5);
 }
 
 @keyframes bubleGam {
@@ -48,7 +44,7 @@ $transition-timing-bezier: cubic-bezier(.08, 1.14 , .97, .89);
 }
 
 .social-block__toggler::before {
-  animation: bubleGam $transition-duration $transition-delay backwards;
+  animation: bubleGam $animation-duration $animation-delay backwards;
   animation-play-state: paused;
 }
 
@@ -56,7 +52,7 @@ $transition-timing-bezier: cubic-bezier(.08, 1.14 , .97, .89);
   .page-header__menu {
     a.active {
       &::after {
-        transition-delay: $transition-delay;
+        transition-delay: $animation-delay;
         transform: scaleX(1);
         transform-origin: left;
       }
