@@ -8,8 +8,12 @@ export default class FullPageScroll {
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
 
     this.activeScreen = 0;
+    this.prevScreen = 0;
+
     this.onScrollHandler = this.onScroll.bind(this);
     this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
+
+    this.screensFillTransition = [1];
   }
 
   init() {
@@ -21,16 +25,36 @@ export default class FullPageScroll {
 
   onScroll(evt) {
     const currentPosition = this.activeScreen;
+    this.prevScreen = this.activeScreen;
+
     this.reCalculateActiveScreenPosition(evt.deltaY);
     if (currentPosition !== this.activeScreen) {
-      this.changePageDisplay();
+      this.changePageDisplayHandler();
     }
   }
 
   onUrlHashChanged() {
     const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
+    this.prevScreen = this.activeScreen;
     this.activeScreen = (newIndex < 0) ? 0 : newIndex;
-    this.changePageDisplay();
+    this.changePageDisplayHandler();
+  }
+
+  changePageDisplayHandler() {
+    const isNeedFillScreen = this.screensFillTransition.indexOf(this.prevScreen) >= 0;
+    const ANIMATION_DURATION_WITH_DELAY = 600;
+
+    if (isNeedFillScreen) {
+      const element = this.screenElements[this.prevScreen];
+      element.classList.add(`screen--fill`);
+
+      setTimeout(() => {
+        element.classList.remove(`screen--fill`);
+        this.changePageDisplay();
+      }, ANIMATION_DURATION_WITH_DELAY);
+    } else {
+      this.changePageDisplay();
+    }
   }
 
   changePageDisplay() {
