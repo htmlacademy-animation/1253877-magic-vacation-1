@@ -10285,10 +10285,12 @@ class FullPageScroll {
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
 
     this.activeScreen = 0;
+    this.prevScreen = 0;
+
     this.onScrollHandler = this.onScroll.bind(this);
     this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
 
-    this.screensFillTransition = [2];
+    this.screensFillTransition = [1];
   }
 
   init() {
@@ -10300,6 +10302,8 @@ class FullPageScroll {
 
   onScroll(evt) {
     const currentPosition = this.activeScreen;
+    this.prevScreen = this.activeScreen;
+
     this.reCalculateActiveScreenPosition(evt.deltaY);
     if (currentPosition !== this.activeScreen) {
       this.changePageDisplayHandler();
@@ -10308,16 +10312,17 @@ class FullPageScroll {
 
   onUrlHashChanged() {
     const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
+    this.prevScreen = this.activeScreen;
     this.activeScreen = (newIndex < 0) ? 0 : newIndex;
     this.changePageDisplayHandler();
   }
 
   changePageDisplayHandler() {
-    const isNeedFillScreen = this.screensFillTransition.indexOf(this.activeScreen) >= 0;
+    const isNeedFillScreen = this.screensFillTransition.indexOf(this.prevScreen) >= 0;
     const ANIMATION_DURATION_WITH_DELAY = 600;
 
     if (isNeedFillScreen) {
-      const element = this.screenElements[this.activeScreen - 1];
+      const element = this.screenElements[this.prevScreen];
       element.classList.add(`screen--fill`);
 
       setTimeout(() => {
