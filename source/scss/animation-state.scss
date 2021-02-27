@@ -1,6 +1,12 @@
 // Вынес сюда сцены анимации, чтобы не мешать с основными стилями.
 // Не очень понял, зачем по заданию это делать через transition,
 // если это не эффекты взаимодействия и через animation в итоге удобнее.
+$animation-duration: 500ms;
+$animation-delay: 200ms;
+$animation-timing-bezier: cubic-bezier(.08, 1.14 , .97, .89);
+$animation-timing-bublegum: cubic-bezier(.85,1.45,.61,1.18);
+
+// first view - start
 .page-header__logo,
 .page-header__menu,
 .screen__footer,
@@ -29,25 +35,19 @@
   animation-delay: calc(#{$animation-delay} * 5);
 }
 
-@keyframes bubleGam {
-  0% {
-    width: 0;
-    height: 0;
-    opacity: 0;
-  }
-
-  60% {
-    width: 120%;
-    height: 120%;
-  }
-}
-
 .social-block__toggler::before {
   animation: bubleGam $animation-duration $animation-delay backwards;
   animation-play-state: paused;
 }
+// first view - end
+
+.rules__item::before {
+  animation-play-state: running;
+}
+
 
 .loaded {
+  // first view - start
   .page-header__menu {
     a.active {
       &::after {
@@ -65,4 +65,10 @@
   .screen__footer {
     animation-play-state: running;
   }
+  // first view - end
+
+  .active .rules__item::before {
+    animation-play-state: running;
+  }
+
 }
