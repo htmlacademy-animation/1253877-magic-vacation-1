@@ -3440,24 +3440,26 @@ img {
     animation-fill-mode: backwards; }
   .loaded .active .rules__item p {
     animation: fadeRule 500ms cubic-bezier(0.08, 1.14, 0.97, 0.89) backwards; }
-  .loaded .active .rules__item:nth-child(1) p {
-    animation-delay: var(--delay-rule); }
-  .loaded .active .rules__item:nth-child(2)::before {
+  .loaded .active .rules__item:nth-child(1)::before {
     animation-delay: calc(var(--delay-rule) + 50ms); }
+  .loaded .active .rules__item:nth-child(1) p {
+    animation-delay: calc(var(--delay-rule) + 100ms); }
+  .loaded .active .rules__item:nth-child(2)::before {
+    animation-delay: calc(var(--delay-rule) + 150ms); }
   .loaded .active .rules__item:nth-child(2) p {
-    animation-delay: calc(var(--delay-rule) + 100ms); }
+    animation-delay: calc(var(--delay-rule) + 200ms); }
   .loaded .active .rules__item:nth-child(3)::before {
-    animation-delay: calc(var(--delay-rule) + 100ms); }
-  .loaded .active .rules__item:nth-child(3) p {
-    animation-delay: calc(var(--delay-rule) + 200ms); }
-  .loaded .active .rules__item:nth-child(4)::before {
-    animation-delay: calc(var(--delay-rule) + 200ms); }
-  .loaded .active .rules__item:nth-child(4) p {
     animation-delay: calc(var(--delay-rule) + 300ms); }
+  .loaded .active .rules__item:nth-child(3) p {
+    animation-delay: calc(var(--delay-rule) + 400ms); }
+  .loaded .active .rules__item:nth-child(4)::before {
+    animation-delay: calc(var(--delay-rule) + 500ms); }
+  .loaded .active .rules__item:nth-child(4) p {
+    animation-delay: calc(var(--delay-rule) + 600ms); }
   .loaded .active .rules__link {
     animation-name: scaleRuleButton, opacityColor;
     animation-duration: 300ms, 200ms;
-    animation-delay: calc(var(--delay-rule) + 400ms), calc(var(--delay-rule) + 800ms);
+    animation-delay: calc(var(--delay-rule) + 700ms), calc(var(--delay-rule) + 900ms);
     animation-timing-function: cubic-bezier(0.08, 1.14, 0.97, 0.89);
     animation-fill-mode: backwards; }
 
