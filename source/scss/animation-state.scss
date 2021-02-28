@@ -118,12 +118,6 @@ $animation-timing-bublegum: cubic-bezier(.23, 1.93, 1, .71);
 
 
     .rules__item:nth-child(1) {
-      p {
-        animation-delay: var(--delay-rule);
-      }
-    }
-
-    .rules__item:nth-child(2) {
       &::before {
         animation-delay: calc(var(--delay-rule) + 50ms);
       }
@@ -133,9 +127,9 @@ $animation-timing-bublegum: cubic-bezier(.23, 1.93, 1, .71);
       }
     }
 
-    .rules__item:nth-child(3) {
+    .rules__item:nth-child(2) {
       &::before {
-        animation-delay: calc(var(--delay-rule) + 100ms);
+        animation-delay: calc(var(--delay-rule) + 150ms);
       }
 
       p {
@@ -143,20 +137,30 @@ $animation-timing-bublegum: cubic-bezier(.23, 1.93, 1, .71);
       }
     }
 
-    .rules__item:nth-child(4) {
+    .rules__item:nth-child(3) {
       &::before {
-        animation-delay: calc(var(--delay-rule) + 200ms);
+        animation-delay: calc(var(--delay-rule) + 300ms);
       }
 
       p {
-        animation-delay: calc(var(--delay-rule) + 300ms);
+        animation-delay: calc(var(--delay-rule) + 400ms);
+      }
+    }
+
+    .rules__item:nth-child(4) {
+      &::before {
+        animation-delay: calc(var(--delay-rule) + 500ms);
+      }
+
+      p {
+        animation-delay: calc(var(--delay-rule) + 600ms);
       }
     }
 
     .rules__link {
       animation-name: scaleRuleButton, opacityColor;
       animation-duration: 300ms, 200ms;
-      animation-delay: calc(var(--delay-rule) + 400ms), calc(var(--delay-rule) + 800ms);
+      animation-delay: calc(var(--delay-rule) + 700ms), calc(var(--delay-rule) + 900ms);
       animation-timing-function: $animation-timing-bezier;
       animation-fill-mode: backwards;
     }
