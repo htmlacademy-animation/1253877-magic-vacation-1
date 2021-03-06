@@ -8,6 +8,7 @@ import result from './modules/result.js';
 import form from './modules/form.js';
 import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
+import animateWords from './modules/words-animations';
 
 // init modules
 mobileHeight();
@@ -21,3 +22,6 @@ social();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
+
+const element = document.querySelector('.intro__title');
+animateWords(element);
