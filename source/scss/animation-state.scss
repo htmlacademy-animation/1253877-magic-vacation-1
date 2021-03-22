@@ -32,7 +32,7 @@ $animation-timing-bublegum: cubic-bezier(.23, 1.93, 1, .71);
 
 .intro__message {
   animation-name: fadeFromBottom;
-  animation-delay: calc(#{$animation-delay} * 5);
+  animation-delay: $animation-delay * 7;
 }
 
 @keyframes bubleToggler {
