@@ -2220,16 +2220,6 @@ img {
     .result__image {
       left: -1rem;
       right: -1rem; } }
-  .result__image picture {
-    display: block;
-    width: 100%;
-    height: 100%; }
-  .result__image picture img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center; }
 
 .result__picture {
   position: absolute;
