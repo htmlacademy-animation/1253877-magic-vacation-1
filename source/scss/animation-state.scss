@@ -1,6 +1,3 @@
-// Вынес сюда сцены анимации, чтобы не мешать с основными стилями.
-// Не очень понял, зачем по заданию это делать через transition,
-// если это не эффекты взаимодействия и через animation в итоге удобнее.
 $animation-duration: 500ms;
 $animation-delay: 200ms;
 $animation-timing-bezier: cubic-bezier(.08, 1.14, .97, .89);
@@ -47,6 +44,7 @@ $animation-timing-bublegum: cubic-bezier(.23, 1.93, 1, .71);
   animation: bubleToggler $animation-duration $animation-timing-bublegum $animation-delay backwards;
   animation-play-state: paused;
 }
+
 // first view - end
 
 .loaded {
@@ -68,6 +66,7 @@ $animation-timing-bublegum: cubic-bezier(.23, 1.93, 1, .71);
   .screen__footer {
     animation-play-state: running;
   }
+
   // first view - end
 
   // rules section - start
@@ -137,5 +136,149 @@ $animation-timing-bublegum: cubic-bezier(.23, 1.93, 1, .71);
       animation-fill-mode: backwards;
     }
     // rules section - end
+
+    // game section - start
+    .form__field {
+      animation: scaleX 500ms 300ms both;
+    }
+    // game section - end
   }
+
+  @keyframes swayFlamingo {
+    30% {
+      transform: rotate(-3deg) translateY(3%);;
+    }
+
+    50% {
+      transform: rotate(-5deg) translateY(4%);
+    }
+  }
+
+  @keyframes rotateFromBottom {
+    0% {
+      transform: rotate(-35deg) translateY(200%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes scaleFromBottom {
+    0% {
+      transform: scale(0) translateY(200%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes fadeAndRotateLeafLeft {
+    0% {
+      opacity: 0;
+      transform: rotate(65deg);
+    }
+
+    20% {
+      opacity: 1;
+      transform: rotate(-7deg);
+    }
+
+    40% {
+      transform: rotate(5deg);
+    }
+
+    60% {
+      transform: rotate(-3deg);
+    }
+
+    80% {
+      transform: rotate(2deg);
+    }
+  }
+
+  @keyframes fadeAndRotateLeafRight {
+    0% {
+      opacity: 0;
+      transform: rotate(-65deg);
+    }
+
+    20% {
+      opacity: 1;
+      transform: rotate(7deg);
+    }
+
+    40% {
+      transform: rotate(-5deg);
+    }
+
+    60% {
+      transform: rotate(3deg);
+    }
+
+    80% {
+      transform: rotate(-2deg);
+    }
+  }
+
+  @keyframes fadeBgAndFont {
+    0% {
+      opacity: 0;
+      color: transparent;
+    }
+
+    50% {
+      opacity: 1;
+      color: transparent;
+    }
+  }
+
+  // result section - start
+  $animation-timing-result-bublegum: cubic-bezier(.07, 1.48, .7, .97);
+  $animation-duration-result-main: 600ms;
+
+  .result__picture--flamingo {
+    transform-origin: bottom right;
+  }
+
+  .result__picture--leaf-right,
+  .result__picture--leaf-green {
+    transform-origin: left center;
+  }
+
+  .result__picture--leaf-left {
+    transform-origin: right center;
+  }
+
+  .screen--show {
+    .result__picture {
+      will-change: transform;
+    }
+
+    .result__picture--flamingo {
+      animation-name: rotateFromBottom, swayFlamingo;
+      animation-duration: $animation-duration-result-main, 5s;
+      animation-delay: 300ms, $animation-duration-result-main + 300ms;
+      animation-timing-function: $animation-timing-result-bublegum, linear;
+      animation-fill-mode: backwards, none;
+      animation-iteration-count: 1, infinite;
+    }
+
+    .result__picture--suitcase {
+      animation: scaleFromBottom $animation-duration-result-main 300ms $animation-timing-result-bublegum backwards;
+    }
+
+    .result__picture--leaf-left {
+      animation: fadeAndRotateLeafLeft 2s $animation-duration-result-main - 100ms ease-in-out backwards;
+    }
+
+    .result__picture--leaf-right,
+    .result__picture--leaf-green {
+      animation: fadeAndRotateLeafRight 2s $animation-duration-result-main - 100ms ease-in-out backwards;
+    }
+
+    .form__field {
+      animation: scaleX $animation-duration $animation-duration-result-main backwards;
+    }
+
+    .form__button {
+      animation: fadeBgAndFont $animation-duration $animation-duration-result-main backwards;
+    }
+  }
+  //result section - end
 }
