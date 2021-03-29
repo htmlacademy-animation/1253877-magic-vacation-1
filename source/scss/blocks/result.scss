@@ -40,6 +40,12 @@
   }
 }
 
+.result__center-images {
+  position: relative;
+  width: 50vw;
+  height: 30vw;
+}
+
 .result__picture {
   position: absolute;
   object-fit: cover;
@@ -47,33 +53,33 @@
 
   // значения подобраны наложением
   &--leaf-right {
-    width: 24%;
-    left: 50%;
-    top: 38%;
+    width: 40%;
+    right: 5%;
+    top: 28%;
   }
 
   &--leaf-left {
-    width: 24%;
-    left: 20%;
-    top: 51%;
+    width: 40%;
+    left: 5%;
+    top: 48%;
   }
 
   &--leaf-green {
-    width: 27%;
-    left: 49%;
-    top: 56%;
+    width: 44%;
+    right: 3%;
+    top: 64%;
   }
 
   &--suitcase {
-    width: 28%;
-    left: 33%;
-    top: 39%;
+    width: 48%;
+    right: 25%;
+    top: 28%;
   }
 
   &--flamingo {
-    width: 24%;
-    left: 29%;
-    top: 47%;
+    width: 38%;
+    left: 20%;
+    top: 44%;
   }
 }
 
