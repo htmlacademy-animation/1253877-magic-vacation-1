@@ -41,7 +41,10 @@ export default class FullPageScroll {
   }
 
   changePageDisplayHandler() {
-    const isNeedFillScreen = this.screensFillTransition.indexOf(this.prevScreen) >= 0;
+    const isNeedFillScreen =
+      this.activeScreen !== this.prevScreen
+      && this.screensFillTransition.indexOf(this.prevScreen) >= 0;
+
     const ANIMATION_DURATION_WITH_DELAY = 600;
 
     if (isNeedFillScreen) {

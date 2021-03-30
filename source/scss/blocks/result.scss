@@ -38,19 +38,48 @@
     left: -1rem;
     right: -1rem;
   }
+}
 
-  picture {
-    display: block;
-    width: 100%;
-    height: 100%;
+.result__center-images {
+  position: relative;
+  width: 50vw;
+  height: 30vw;
+}
+
+.result__picture {
+  position: absolute;
+  object-fit: cover;
+  object-position: center;
+
+  // значения подобраны наложением
+  &--leaf-right {
+    width: 40%;
+    right: 5%;
+    top: 28%;
   }
 
-  img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+  &--leaf-left {
+    width: 40%;
+    left: 5%;
+    top: 48%;
+  }
+
+  &--leaf-green {
+    width: 44%;
+    right: 3%;
+    top: 64%;
+  }
+
+  &--suitcase {
+    width: 48%;
+    right: 25%;
+    top: 28%;
+  }
+
+  &--flamingo {
+    width: 38%;
+    left: 20%;
+    top: 44%;
   }
 }
 

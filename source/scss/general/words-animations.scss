@@ -1,0 +1,28 @@
+// не вижу смысла описывать все в JS, чтобы не дергать еще раз рендеринг
+.words-animations {
+  & > span {
+    display: inline-flex;
+    line-height: 1.2;
+    overflow-y: hidden;
+  }
+}
+
+@keyframes fromBottom {
+  0% {
+    transform: translateY(120%);
+  }
+}
+
+.words-animations {
+  span span {
+    will-change: transform;
+    animation: fromBottom 1s cubic-bezier(0, .78, .22, .99) backwards;
+    animation-play-state: paused;
+  }
+}
+
+.active .words-animations__wrapper {
+  span {
+    animation-play-state: running;
+  }
+}

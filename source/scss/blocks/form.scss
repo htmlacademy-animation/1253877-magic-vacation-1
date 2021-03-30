@@ -43,7 +43,6 @@
   border: 0;
   border-radius: 3rem;
   outline: none;
-  animation: scaleX 500ms 300ms both;
 
   &:focus {
     border: 1px solid $c-purple;
@@ -77,10 +76,6 @@
     height: 4rem;
     font-size: 1.6rem;
   }
-}
-
-.active .form__field {
-  animation-play-state: running;
 }
 
 .form__button {
