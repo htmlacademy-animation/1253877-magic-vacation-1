@@ -142,6 +142,55 @@ $animation-timing-bublegum: cubic-bezier(.23, 1.93, 1, .71);
       animation: scaleX 500ms 300ms both;
     }
     // game section - end
+
+    // story section - start
+    @keyframes moveAndRotateFromRight {
+      0% {
+        opacity: 0;
+        transform: translateX(200%);
+      }
+
+      70% {
+        opacity: .1;
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0) rotate(-720deg);
+      }
+    }
+
+    @keyframes moveAndRotateFromLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-200%);
+      }
+
+      70% {
+        opacity: .1;
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0) rotate(720deg);
+      }
+    }
+
+    .slider__control {
+      animation-duration: 500ms;
+      animation-delay: 200ms;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: backwards;
+
+      &--prev {
+        animation-name: moveAndRotateFromLeft;
+      }
+
+      &--next {
+        animation-name: moveAndRotateFromRight;
+      }
+
+    }
   }
 
   @keyframes swayFlamingo {
@@ -280,5 +329,5 @@ $animation-timing-bublegum: cubic-bezier(.23, 1.93, 1, .71);
       animation: fadeBgAndFont $animation-duration $animation-duration-result-main backwards;
     }
   }
-  //result section - end
+  // result section - end
 }
