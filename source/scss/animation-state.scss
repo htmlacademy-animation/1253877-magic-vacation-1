@@ -167,6 +167,10 @@ $animation-timing-bublegum: cubic-bezier(.23, 1.93, 1, .71);
       animation-timing-function: $animation-timing-bezier;
       animation-fill-mode: backwards;
     }
+
+    .screen__disclaimer ul {
+      animation: fade $animation-duration linear;
+    }
     // rules section - end
 
     // game section - start
