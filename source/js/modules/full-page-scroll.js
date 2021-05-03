@@ -1,4 +1,5 @@
 import throttle from 'lodash/throttle';
+import themeController from './theme-controller';
 
 export default class FullPageScroll {
   constructor() {
@@ -14,6 +15,7 @@ export default class FullPageScroll {
     this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
 
     this.screensFillTransition = [1];
+    this.screenWithThemeController = [1];
   }
 
   init() {
@@ -21,6 +23,16 @@ export default class FullPageScroll {
     window.addEventListener(`popstate`, this.onUrlHashChengedHandler);
 
     this.onUrlHashChanged();
+  }
+
+  checkIndexOfPrevScreen(config) {
+    return this.activeScreen !== this.prevScreen
+      && this[config].indexOf(this.prevScreen) >= 0;
+  }
+
+  checkIndexOfActiveScreen(config) {
+    return this.activeScreen !== this.prevScreen
+      && this[config].indexOf(this.activeScreen) >= 0;
   }
 
   onScroll(evt) {
@@ -41,9 +53,9 @@ export default class FullPageScroll {
   }
 
   changePageDisplayHandler() {
-    const isNeedFillScreen =
-      this.activeScreen !== this.prevScreen
-      && this.screensFillTransition.indexOf(this.prevScreen) >= 0;
+    const isNeedFillScreen = this.checkIndexOfPrevScreen(`screensFillTransition`);
+    const isNeedSetDefaultTheme = this.checkIndexOfPrevScreen(`screenWithThemeController`);
+    const isNeedSetActiveTheme = this.checkIndexOfActiveScreen(`screenWithThemeController`);
 
     const ANIMATION_DURATION_WITH_DELAY = 600;
 
@@ -57,6 +69,12 @@ export default class FullPageScroll {
       }, ANIMATION_DURATION_WITH_DELAY);
     } else {
       this.changePageDisplay();
+    }
+
+    if (isNeedSetDefaultTheme) {
+      themeController.setDefaultTheme();
+    } else if (isNeedSetActiveTheme) {
+      themeController.setActiveTheme();
     }
   }
 

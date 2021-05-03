@@ -15,7 +15,7 @@
   display: block;
   width: 4rem;
   height: 4rem;
-  color: $c-dark;
+  color: var(--header-theme-accent);
   border-radius: 50%;
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -47,7 +47,7 @@
 
   &:hover,
   .social-block--active & {
-    color: $c-purple;
+    color: var(--header-theme);
 
     &::before {
       width: 112.5%;
@@ -56,11 +56,11 @@
   }
 
   &:focus {
-    color: $c-purple;
+    color: var(--header-theme);
     outline: none;
 
     &::before {
-      border-color: $c-purple;
+      border-color: var(--header-theme);
     }
 
     & + .social-block__list {
@@ -76,8 +76,8 @@
     &::before {
       width: 100%;
       height: 100%;
-      background-color: $c-purple;
-      border-color: $c-purple;
+      background-color: var(--header-theme);
+      border-color: var(--header-theme);
     }
   }
 }
@@ -182,28 +182,28 @@
 
   @media (max-width: $tablet) and (orientation: portrait) {
     color: $c-light;
-    background-color: $c-dark;
+    background-color: var(--header-theme-accent);
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
     color: $c-light;
-    background-color: $c-dark;
+    background-color: var(--header-theme-accent);
   }
 
   &:hover {
-    color: $c-purple;
+    color: var(--header-theme);
   }
 
   &:focus {
-    color: $c-purple;
+    color: var(--header-theme);
     background-color: $c-light;
-    border-color: $c-purple;
+    border-color: var(--header-theme);
     outline: none;
   }
 
   &:active,
   &:active:focus {
-    color: $c-purple;
+    color: var(--header-theme);
     background-color: $c-light;
     border-color: $c-light;
   }
