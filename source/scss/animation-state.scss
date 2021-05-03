@@ -100,6 +100,38 @@ $animation-timing-bublegum: cubic-bezier(.23, 1.93, 1, .71);
     }
   }
 
+  @keyframes moveAndRotateFromRight {
+    0% {
+      opacity: 0;
+      transform: translateX(200%);
+    }
+
+    70% {
+      opacity: .1;
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0) rotate(-720deg);
+    }
+  }
+
+  @keyframes moveAndRotateFromLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-200%);
+    }
+
+    70% {
+      opacity: .1;
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0) rotate(720deg);
+    }
+  }
+
   .active {
     $delay-rule: ($animation-duration / 2 + 50ms);
     $delay-increase: 100ms;
@@ -144,38 +176,6 @@ $animation-timing-bublegum: cubic-bezier(.23, 1.93, 1, .71);
     // game section - end
 
     // story section - start
-    @keyframes moveAndRotateFromRight {
-      0% {
-        opacity: 0;
-        transform: translateX(200%);
-      }
-
-      70% {
-        opacity: .1;
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateX(0) rotate(-720deg);
-      }
-    }
-
-    @keyframes moveAndRotateFromLeft {
-      0% {
-        opacity: 0;
-        transform: translateX(-200%);
-      }
-
-      70% {
-        opacity: .1;
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateX(0) rotate(720deg);
-      }
-    }
-
     .slider__control {
       animation-duration: 500ms;
       animation-delay: 200ms;
@@ -189,8 +189,8 @@ $animation-timing-bublegum: cubic-bezier(.23, 1.93, 1, .71);
       &--next {
         animation-name: moveAndRotateFromRight;
       }
-
     }
+    // story section - end
   }
 
   @keyframes swayFlamingo {
@@ -327,6 +327,14 @@ $animation-timing-bublegum: cubic-bezier(.23, 1.93, 1, .71);
 
     .form__button {
       animation: fadeBgAndFont $animation-duration $animation-duration-result-main backwards;
+    }
+
+    .result__button {
+      animation: fade $animation-duration $animation-delay backwards;
+
+      span {
+        animation: moveAndRotateFromRight $animation-duration $animation-delay backwards;
+      }
     }
   }
   // result section - end
