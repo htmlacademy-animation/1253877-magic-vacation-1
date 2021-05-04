@@ -63,6 +63,19 @@ body {
       overflow: hidden;
     }
   }
+
+  --header-theme: #{$c-purple};
+  --header-theme-accent: #{$c-dark};
+
+  &.blue {
+    --header-theme: #{$c-blue};
+    --header-theme-accent: #{$c-blue-light};
+  }
+
+  &.blue-light {
+    --header-theme: #{$c-blue-light};
+    --header-theme-accent: #{$c-blue};
+  }
 }
 
 a {
