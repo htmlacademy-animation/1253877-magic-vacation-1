@@ -92,6 +92,11 @@
       transform: scale(1);
       color: transparent;
     }
+
+    100% {
+      transform: scale(1);
+      // не указываю color, иначе будет не универсально
+    }
   }
 
   @keyframes scaleFromRight {
