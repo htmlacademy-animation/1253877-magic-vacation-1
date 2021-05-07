@@ -3,6 +3,18 @@ $animation-delay: 200ms;
 $animation-timing-bezier: cubic-bezier(.08, 1.14, .97, .89);
 $animation-timing-bublegum: cubic-bezier(.23, 1.93, 1, .71);
 
+@keyframes scaleInput {
+  0% {
+    width: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
 // first view - start
 .page-header__logo,
 .page-header__menu,
@@ -175,7 +187,7 @@ $animation-timing-bublegum: cubic-bezier(.23, 1.93, 1, .71);
 
     // game section - start
     .form__field {
-      animation: scaleX 500ms 300ms both;
+      animation: scaleInput $animation-duration 300ms backwards;
     }
     // game section - end
 
@@ -326,7 +338,7 @@ $animation-timing-bublegum: cubic-bezier(.23, 1.93, 1, .71);
     }
 
     .form__field {
-      animation: scaleX $animation-duration $animation-duration-result-main backwards;
+      animation: scaleInput $animation-duration $animation-duration-result-main backwards;
     }
 
     .form__button {
@@ -337,7 +349,7 @@ $animation-timing-bublegum: cubic-bezier(.23, 1.93, 1, .71);
       animation: fade $animation-duration $animation-delay backwards;
 
       span {
-        animation: moveAndRotateFromRight $animation-duration $animation-delay backwards;
+        animation: moveAndRotateFromRight $animation-duration $animation-delay ease-out backwards;
       }
     }
   }

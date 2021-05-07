@@ -27,13 +27,3 @@
     transform: translateY(100%)
   }
 }
-
-@keyframes scaleX {
-  0%, 100% {
-    transform-origin: right;
-  }
-
-  0% {
-    transform: scaleX(0);
-  }
-}
